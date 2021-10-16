@@ -62,13 +62,7 @@ namespace XLSXCompiler.Services
                             attendeesAboveTimeLimit.Add(attendees[i]);
                         }
                     }
-                    //foreach (var attendee in attendees)
-                    //{
-                    //    if(attendee.LeaveTime - attendee.JoinTime < TimeSpan.FromMinutes(30))
-                    //    {
-                    //        attendees.Remove(attendee);
-                    //    }
-                    //}
+
                     var participants = await _context.Participants.ToListAsync();
 
                     foreach(var entry in participants)
