@@ -11,11 +11,11 @@
     <h3 class="lead text-center pb-5">Get Started</h3>
 
     <div class="row mb-5">
-        <div class="col-md-4 text-left mb-3 border-bottom pb-5">
+        <div class="col-md-5 text-left mb-3 border-bottom pb-5">
             <p class="text-danger">@TempData["EnrollmentError"]</p>
             <p class="text-success">@TempData["EnrollmentSuccess"]</p>
             <h4>Enroll Participants</h4>
-            <p>Enter program name and upload excel sheet containing all participants.</p>
+            <p>Enter program name and upload excel sheet containing all participants with header values - ParticipantId, FullName, EmailAddress in .xlsx format.</p>
             <div class="form-label-group">
                 <form asp-action="Enrollment" method="post" id="addPerson" enctype="multipart/form-data">
                     <input class="form-control col-md-10 mb-1"  type="text" name="ProgramName" placeholder="Program Name" required />
@@ -24,6 +24,8 @@
                 </form>
             </div>
         </div>
+
+        <div class="col-md-2"></div>
 
         @*<div class="col-md-4 text-center border-right border-left mb-3  border-bottom pb-5">
             <p class="text-danger">@TempData["TrainError"]</p>
@@ -35,19 +37,19 @@
             </form>
         </div>*@
 
-        <div class="col-md-4 text-right mb-3  border-bottom pb-5">
+        <div class="col-md-5 text-right mb-3  border-bottom pb-5">
             <p class="text-danger">@TempData["CompileError"]</p>
             <p class="text-success">@TempData["CompileSuccess"]</p>
             <h4>Compile</h4>
-            <p>Upload a group image(s) of all attendees to get the list of everyone in attendance.</p>
-            <div class="form-label-group text-right">
+            <p>Upload a teams generated attendance sheet with header values - FullName, JoinTime, LeaveTime, Duration, Email, Role, ParticipantID in .xlsx format</p>
+            <div class="form-label-group text-left">
                 <form asp-action="CompileToSheet" method="post" id="identifyPerson" enctype="multipart/form-data">
-                    @*<select class="form-control col-md-10 mb-1" name="SheetID" required>
+                    <select class="form-control col-md-10 mb-1" name="SheetID" required>
                         @foreach (var sheet in Model)
                         {
                             <option value="@sheet.Id">@sheet.ProgramName</option>
                         }
-                    </select>*@
+                    </select>
                     <input class="form-control col-md-10 mb-1" type="datetime-local" name="Date" placeholder="Meeting Name" required />
                     <input class="mt-3 mb-3" id="fileSelect" name="file" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
                     <button class="mt-3 btn-sm btn-block" type="submit" id="identifyBtn" onclick="showIdentifyLoader()">Add to Sheet</button>

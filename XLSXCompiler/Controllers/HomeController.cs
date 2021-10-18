@@ -20,6 +20,8 @@ namespace XLSXCompiler.Controllers
         private readonly ILogger<HomeController> _logger;
         private XLSXContext _context;
 
+        private static List<SheetDetails> sheets;
+
         public HomeController(ILogger<HomeController> logger, IParticipantService participantService, XLSXContext context)
         {
             _logger = logger;
@@ -29,8 +31,8 @@ namespace XLSXCompiler.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var sheets = await _context.SheetDetails.ToListAsync();
-            return View();
+            var sheets = await _context.SheetDetails.ToListAsync();
+            return View(sheets);
         }
 
         public IActionResult Privacy()
@@ -63,16 +65,16 @@ namespace XLSXCompiler.Controllers
         [HttpGet]
         public async Task<IActionResult> Meetings()
         {
-            var sheets = await _context.SheetDetails.ToListAsync();
+            sheets = await _context.SheetDetails.ToListAsync();
             return View(sheets);
         }
 
         [HttpPost]
         public async Task<IActionResult> Meetings(int sheetID)
         {
-            var sheets = await _participantService.SheetDetailsAsync(sheetID);
-            ViewBag.MeetingVM = sheets;
-            return View();
+            var meetingViewModel = await _participantService.SheetDetailsAsync(sheetID);
+            ViewBag.MeetingVM = meetingViewModel;
+            return View(sheets);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

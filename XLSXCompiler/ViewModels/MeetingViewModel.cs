@@ -9,6 +9,6 @@ namespace XLSXCompiler.ViewModels
     public class MeetingViewModel
     {
         public SheetDetails SheetDetails { get; set; }
-        public List<Meeting> Meetings { get; set; }
+        public List<MeetingDetails> Meetings { get; set; }
     }
 }

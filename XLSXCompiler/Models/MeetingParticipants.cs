@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace XLSXCompiler.Models
 {
-    public class Participant
+    public class MeetingParticipants
     {
         public int Id { get; set; }
-        public int ParticipantId { get; set; }
-        public string FullName { get; set; }
-        public string EmailAddress { get; set; }
+
+        public int ParticipantID { get; set; }
+        public Guid MeetingId { get; set; }
     }
 }
