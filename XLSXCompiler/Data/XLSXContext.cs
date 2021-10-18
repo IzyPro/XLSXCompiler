@@ -16,6 +16,7 @@ namespace XLSXCompiler.Data
 
         public DbSet<SheetDetails> SheetDetails { get; set; }
         public DbSet<Participant> Participants { get; set; }
+        public DbSet<MeetingParticipants> MeetingParticipants { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
     }
 }

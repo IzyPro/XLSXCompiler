@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace XLSXCompiler.Models
 {
-    public class MeetingDetail
+    public class AttendeesDetail
     {
         public int Id { get; set; }
         public string FullName { get; set; }
