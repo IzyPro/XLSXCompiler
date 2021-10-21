@@ -34,7 +34,7 @@ namespace XLSXCompiler.Services
                 string fileName = Path.GetFileNameWithoutExtension(file.FileName);
                 string extension = Path.GetExtension(file.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath, $"files{Path.DirectorySeparatorChar}{fileName}");
+                string path = Path.Combine(wwwRootPath, $"files{Path.PathSeparator}{fileName}");
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(fileStream);
@@ -132,7 +132,7 @@ namespace XLSXCompiler.Services
                 string fileName = Path.GetFileNameWithoutExtension(file.FileName);
                 string extension = Path.GetExtension(file.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath, $"files{Path.DirectorySeparatorChar}{fileName}");
+                string path = Path.Combine(wwwRootPath, $"files{Path.PathSeparator}{fileName}");
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(fileStream);
