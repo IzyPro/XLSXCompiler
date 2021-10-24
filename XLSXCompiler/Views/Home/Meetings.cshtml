@@ -40,13 +40,14 @@
                                         <th class="col-1">@meeting.Date.ToShortDateString()</th>
                                     }
                                 }
+                                <th class="col-1">Percentage</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var entry in sheet.SheetDetails.Participants)
                             {
+                                var att = 0;
                                 <tr>
-                                    @*<td class="col-md-2">@string.Join("", entry.Id.ToString().Take(10))...</td>*@
                                     <td class="col-5">@entry.FullName</td>
                                     <td class="col-5">@entry.EmailAddress</td>
                                     @foreach (var meeting in sheet.Meetings)
@@ -54,12 +55,17 @@
                                         if (meeting.Participants.FirstOrDefault(x => x.ParticipantID == entry.ParticipantId) != null)
                                         {
                                             <td class="col-1">Yes</td>
+                                            att++;
                                         }
                                         else
                                         {
                                             <td class="col-1">No</td>
                                         }
                                     }
+                                    @{
+                                        double percent = (att / (double)sheet.Meetings.Count()) * 100;
+                                    }
+                                    <td class="col-1">@percent%</td>
                                 </tr>
                             }
                         </tbody>
