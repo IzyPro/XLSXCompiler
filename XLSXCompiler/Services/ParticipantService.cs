@@ -79,6 +79,8 @@ namespace XLSXCompiler.Services
                         {
                             if (attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.FullName.ToLower()) != null ||
                                 attendeesAboveTimeLimit.FirstOrDefault(x => x.Email?.ToLower() == entry.EmailAddress.ToLower()) != null ||
+                                attendeesAboveTimeLimit.FirstOrDefault(x => x.Email?.ToLower() == entry.EmailAddress2.ToLower()) != null ||
+                                attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.EmailAddress2.ToLower()) != null ||
                                 attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.EmailAddress.ToLower()) != null
                                 || attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName.ToLower().Contains(entry.FullName.ToLower())) != null
                                 )

@@ -15,7 +15,7 @@
             <p class="text-danger">@TempData["EnrollmentError"]</p>
             <p class="text-success">@TempData["EnrollmentSuccess"]</p>
             <h4>Enroll Participants</h4>
-            <p>Enter program name and upload excel sheet containing all participants with header values - ParticipantId, FullName, EmailAddress in .xlsx format.</p>
+            <p>Enter program name and upload excel sheet containing all participants with header values - ParticipantId, FullName, EmailAddress, EmailAddress2 in .xlsx format.</p>
             <div class="form-label-group">
                 <form asp-action="Enrollment" method="post" id="addPerson" enctype="multipart/form-data">
                     <input class="form-control col-md-10 mb-1"  type="text" name="ProgramName" placeholder="Program Name" required />
