@@ -15,5 +15,6 @@ namespace XLSXCompiler.Models
         public string FullName { get; set; }
         [Required]
         public string EmailAddress { get; set; }
+        public string EmailAddress2 { get; set; }
     }
 }

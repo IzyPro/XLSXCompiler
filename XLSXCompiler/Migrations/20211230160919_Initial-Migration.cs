@@ -54,8 +54,9 @@ namespace XLSXCompiler.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ParticipantId = table.Column<int>(type: "int", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmailAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SheetDetailsId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

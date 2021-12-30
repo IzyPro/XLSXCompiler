@@ -10,7 +10,7 @@ using XLSXCompiler.Data;
 namespace XLSXCompiler.Migrations
 {
     [DbContext(typeof(XLSXContext))]
-    [Migration("20211018211822_InitialMigration")]
+    [Migration("20211230160919_Initial-Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,9 +64,14 @@ namespace XLSXCompiler.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailAddress2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ParticipantId")
