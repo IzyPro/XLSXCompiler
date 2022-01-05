@@ -46,7 +46,7 @@ namespace XLSXCompiler.Migrations
                     b.Property<Guid>("MeetingId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ParticipantID")
+                    b.Property<int>("ParticipantId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
