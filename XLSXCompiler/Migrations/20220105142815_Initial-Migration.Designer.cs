@@ -10,7 +10,7 @@ using XLSXCompiler.Data;
 namespace XLSXCompiler.Migrations
 {
     [DbContext(typeof(XLSXContext))]
-    [Migration("20211230160919_Initial-Migration")]
+    [Migration("20220105142815_Initial-Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -41,7 +41,7 @@
             <p class="text-danger">@TempData["CompileError"]</p>
             <p class="text-success">@TempData["CompileSuccess"]</p>
             <h4>Compile</h4>
-            <p>Upload a teams generated attendance sheet with header values - FullName, JoinTime, LeaveTime, Duration, Email, Role, ParticipantID in .xlsx format</p>
+            <p>Upload a teams generated attendance sheet with header values - FullName, JoinTime, LeaveTime, Duration, Email, Role, ParticipantId in .xlsx format</p>
             <div class="form-label-group text-left">
                 <form asp-action="CompileToSheet" method="post" id="identifyPerson" enctype="multipart/form-data">
                     <select class="form-control col-md-10 mb-1" name="SheetID" required>
