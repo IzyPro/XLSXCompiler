@@ -54,7 +54,7 @@
                                     <td class="col-5">@entry.EmailAddress2</td>
                                     @foreach (var meeting in sheet.Meetings)
                                     {
-                                        if (meeting.Participants.FirstOrDefault(x => x.ParticipantID == entry.ParticipantId) != null)
+                                        if (meeting.Participants.FirstOrDefault(x => x.ParticipantId == entry.ParticipantId) != null)
                                         {
                                             <td class="col-1">Yes</td>
                                             att++;

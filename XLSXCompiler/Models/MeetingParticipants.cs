@@ -9,7 +9,7 @@ namespace XLSXCompiler.Models
     {
         public int Id { get; set; }
 
-        public int ParticipantID { get; set; }
+        public int ParticipantId { get; set; }
         public Guid MeetingId { get; set; }
     }
 }

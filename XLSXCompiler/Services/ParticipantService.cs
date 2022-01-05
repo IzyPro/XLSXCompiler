@@ -85,7 +85,7 @@ namespace XLSXCompiler.Services
                                 meetingParticipants.Add(new MeetingParticipants
                                 {
                                     MeetingId = details.Id,
-                                    ParticipantID = entry.ParticipantId
+                                    ParticipantId = entry.ParticipantId
                                 });
 
                             else if (!string.IsNullOrEmpty(entry.EmailAddress2))
@@ -96,7 +96,7 @@ namespace XLSXCompiler.Services
                                     meetingParticipants.Add(new MeetingParticipants
                                     {
                                         MeetingId = details.Id,
-                                        ParticipantID = entry.ParticipantId
+                                        ParticipantId = entry.ParticipantId
                                     });
                             }
                         }

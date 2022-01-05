@@ -10,7 +10,7 @@ using XLSXCompiler.Data;
 namespace XLSXCompiler.Migrations
 {
     [DbContext(typeof(XLSXContext))]
-    [Migration("20220105142815_Initial-Migration")]
+    [Migration("20220105171426_Initial-Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace XLSXCompiler.Migrations
                     b.Property<Guid>("MeetingId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ParticipantID")
+                    b.Property<int>("ParticipantId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
