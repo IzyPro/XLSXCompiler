@@ -77,19 +77,28 @@ namespace XLSXCompiler.Services
                         var meetingParticipants = new List<MeetingParticipants>();
                         foreach (var entry in participants)
                         {
-                            if (attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.FullName?.ToLower()) != null ||
-                                attendeesAboveTimeLimit.FirstOrDefault(x => x.Email?.ToLower() == entry.EmailAddress?.ToLower()) != null ||
-                                attendeesAboveTimeLimit.FirstOrDefault(x => x.Email?.ToLower() == entry.EmailAddress2?.ToLower()) != null ||
-                                attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.EmailAddress2?.ToLower()) != null ||
-                                attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.EmailAddress?.ToLower()) != null
+                            if (attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.FullName.ToLower()) != null ||
+                                attendeesAboveTimeLimit.FirstOrDefault(x => x.Email?.ToLower() == entry.EmailAddress.ToLower()) != null ||
+                                attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.EmailAddress.ToLower()) != null
                                 || attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName.ToLower().Contains(entry.FullName?.ToLower())) != null
                                 )
-
                                 meetingParticipants.Add(new MeetingParticipants
                                 {
                                     MeetingId = details.Id,
                                     ParticipantID = entry.ParticipantId
                                 });
+
+                            else if (!string.IsNullOrEmpty(entry.EmailAddress2))
+                            {
+                                if (
+                                attendeesAboveTimeLimit.FirstOrDefault(x => x.Email?.ToLower() == entry.EmailAddress2.ToLower()) != null ||
+                                attendeesAboveTimeLimit.FirstOrDefault(x => x.FullName?.ToLower() == entry.EmailAddress2.ToLower()) != null)
+                                    meetingParticipants.Add(new MeetingParticipants
+                                    {
+                                        MeetingId = details.Id,
+                                        ParticipantID = entry.ParticipantId
+                                    });
+                            }
                         }
 
                         await _context.Meetings.AddAsync(details);
